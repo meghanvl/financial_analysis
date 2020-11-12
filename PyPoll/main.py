@@ -6,6 +6,7 @@ csvpath = os.path.join("Resources", "election_data.csv")
 vote_count = 0
 candidates = []
 candidate_vote = {}
+winner_vote = 0
 
 with open(csvpath) as csv_file:
    
