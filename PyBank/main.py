@@ -1,9 +1,8 @@
-#import os
-
-# Module for reading CSV files
+#import dependencies
 import os
 import csv
 
+#create path for load
 csvpath = os.path.join("Resources", "budget_data.csv")
 
 total_months = []
@@ -13,11 +12,15 @@ greatest_increase = 0
 greatest_decrease = 0
 change_month = 0
 
+#open file to read
 with open(csvpath) as csv_file:
    print(csv_file)
    csv_reader = csv.reader(csv_file, delimiter=",")
 
+   #skip the header row     
    next(csv_reader)
+
+   #skip January
    firstrow = next(csv_reader)
    total_amount = total_amount + int(firstrow[1])
    previous_month = int(firstrow[1])

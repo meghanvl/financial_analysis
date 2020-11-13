@@ -38,13 +38,11 @@ with open(csvpath) as csv_file:
             Otooley_vote += 1
 
             Khan_percent = round(Khan_vote / vote_count * 100, 2)
-            # Khan_percent = "{:.3%}".format(Khan_percent)
             Correy_percent = round(Correy_vote / vote_count *100, 2)
             Li_percent = round(Li_vote / vote_count * 100, 2)
             Otooley_percent = round(Otooley_vote / vote_count * 100, 2)
     
             
-       
 
 for candidate in candidates:
     votes = candidate_vote.get(candidate)
@@ -55,17 +53,14 @@ for candidate in candidates:
         winner_candidate = candidate
     
 
-
-
-
 print("Election Results")
 print("----------------------------")
 print(f"Total Votes: {vote_count}")
 print("----------------------------")
-print(f"Khan: {Khan_percent}% ({Khan_vote})")
-print(f"Correy: {Correy_percent}00% ({Correy_vote})")
-print(f"Li: {Li_percent}00% ({Li_vote}) ")
-print(f"O'Tooley: {Otooley_percent}00% ({Otooley_vote}) ")
+print(f"Khan: {Khan_percent:.3f}% ({Khan_vote})")
+print(f"Correy: {Correy_percent:.3f}% ({Correy_vote})")
+print(f"Li: {Li_percent:.3f}% ({Li_vote})")
+print(f"O'Tooley: {Otooley_percent:.3f}% ({Otooley_vote})")
 print("----------------------------")
 print(f"Winner: {winner_candidate}")
 print("----------------------------")
@@ -75,12 +70,12 @@ txtpath = os.path.join("Analysis", "election.summary.txt")
 with open(txtpath, "w") as file:
     file.write("Election Results" + "\n")
     file.write("----------------------------" + "\n")
-    file.write("Total Votes:" + "\n")
+    file.write(f"Total Votes: {vote_count}" + "\n")
     file.write("----------------------------" + "\n")
-    file.write("Khan: " + "\n")
-    file.write("Correy: " + "\n")
-    file.write("Li: " + "\n")
-    file.write("O'Tooley: " + "\n")
+    file.write(f"Khan: {Khan_percent:.3f}% ({Khan_vote})" + "\n")
+    file.write(f"Correy: {Correy_percent:.3f}% ({Correy_vote})" + "\n")
+    file.write(f"Li: {Li_percent:.3f}% ({Li_vote})" + "\n")
+    file.write(f"O'Tooley: {Otooley_percent:.3f}% ({Otooley_vote})" + "\n")
     file.write("----------------------------" + "\n")
-    file.write("Winner: " + "\n")
+    file.write(f"Winner: {winner_candidate}" + "\n")
     file.write("----------------------------" + "\n")
